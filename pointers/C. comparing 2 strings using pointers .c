@@ -2,13 +2,14 @@
 
 int compre(char *str1, char *str2){
     while(*str1!='\0' && *str2!='\0'){
-        if(*str1 != *str2) return 0;
+        if(*str1 != *str2){
+            return 0;
+        }
         str1++;
         str2++;
     }
     
-    if(*str1 == *str2) return 1;
-    else return 0;
+    return 1;
 }
 
 int main() {
@@ -18,4 +19,3 @@ int main() {
     else printf("there not same");
     return 0;
 }
-
