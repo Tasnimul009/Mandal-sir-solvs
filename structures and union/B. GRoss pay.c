@@ -7,18 +7,18 @@ typedef struct EMP{
     int basic;
 } emp;
 
-void display(emp infos);
+
 int main() {
-    emp inf;
-    inf.name = "agent 47";
-    inf.basic = 100;
-    display(inf);
+    emp arr[100];
+    for(int i=0;i<100;i++){
+        emp infos = arr[i];
+        fgets(infos.name,strlen(infos.name),stdin);
+        scanf("%d",&arr[i].basic);
+        float gross_pay = infos.basic+(float)infos.basic*(0.50);
+        printf("%f",gross_pay);
+    }
+    
     return 0;
 }
 
-void display(emp infos){
-    printf("name : %s\n", infos.name);
-    float gross_pay = infos.basic+(float)infos.basic*(0.50);
-    printf("Gross pay: %0.2f\n", gross_pay);
-}
 
