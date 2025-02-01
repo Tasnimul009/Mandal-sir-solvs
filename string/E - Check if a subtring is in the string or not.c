@@ -1,25 +1,24 @@
 #include <stdio.h>
-#include <string.h>
-int main(){
-    char str[200], subStr[200];
-    scanf("%s%s", str, subStr);
-    int ind, j=0,ct=0;
-    for(ind=0;ind<strlen(str);ind++){
-        if(str[ind]==subStr[j]){
-            j++;
-            if(subStr[j]=='\0'){
-                ct++;
-                j=0;
-            }
+
+int find_substr(char str[], char substr[]){
+    int l=0;
+    for(int i=0;str[i]!='\0';i++){
+        if(str[i] == substr[l]){
+            l++;
         }
         else{
-            j=0;
+            l=0;
         }
+        if(l==strlen(substr)){
+            return i-strlen(substr)+1;
+        }
+        
     }
-    if(ct==0){
-        printf("not found");
-    }
-    else{
-        printf("found");
-    }
-}    
+    
+    return -1;
+}
+int main(){
+    char substr[200], str[100];
+    scanf("%s%s",str,substr);
+    printf("%d",find_substr(str, substr) );
+}
